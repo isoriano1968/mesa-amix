@@ -1,0 +1,16 @@
+MESA_MAJOR=3
+MESA_MINOR=1
+MESA_TINY=0
+
+amix:
+	$(MAKE) $(MFLAGS) -f Makefile.X11 targets \
+	"GL_LIB = libGL.a" \
+	"GLU_LIB = libGLU.a" \
+	"GLUT_LIB = libglut.a" \
+	"GLW_LIB = libGLw.a" \
+	"CC = gcc" \
+	"CFLAGS = -O -ansi -finline-functions -DAMIX -Dm68k -DSVR4 \
+		-I/usr/x11r6/xc/exports/include -I/usr/x11r6/include" \
+	"MAKELIB = ../bin/mklib.ar-ruv" \
+	"XLIBS = -L/usr/x11r6/xc/exports/lib -L/usr/x11r6/lib \
+		-lX11 -lsocket -lnsl -lm"
