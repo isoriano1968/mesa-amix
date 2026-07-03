@@ -12,6 +12,15 @@ build_dir()
     (cd "$dir" && make -f Makefile.X11 amix)
 }
 
+build_target()
+{
+    dir=$1
+    target=$2
+    echo "=== $dir/$target ==="
+    touch "$dir/depend"
+    (cd "$dir" && make -f Makefile.X11 amix "AMIX_TARGETS=$target")
+}
+
 build_libraries()
 {
     if test -d lib
@@ -33,15 +42,22 @@ libs)
 xdemos)
     build_dir xdemos
     ;;
+gears)
+    build_target demos gears
+    ;;
+demos)
+    build_dir demos
+    ;;
 all)
     build_libraries
     build_dir xdemos
+    build_dir demos
     ;;
 clean)
     make clean
     ;;
 *)
-    echo "usage: $0 [libs|xdemos|all|clean]" >&2
+    echo "usage: $0 [libs|xdemos|gears|demos|all|clean]" >&2
     exit 1
     ;;
 esac

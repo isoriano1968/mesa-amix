@@ -2,8 +2,10 @@ MESA_MAJOR=3
 MESA_MINOR=1
 MESA_TINY=0
 
+AMIX_TARGETS=targets
+
 amix:
-	$(MAKE) $(MFLAGS) -f Makefile.X11 targets \
+	$(MAKE) $(MFLAGS) -f Makefile.X11 $(AMIX_TARGETS) \
 	"GL_LIB = libGL.a" \
 	"GLU_LIB = libGLU.a" \
 	"GLUT_LIB = libglut.a" \
@@ -13,4 +15,4 @@ amix:
 		-I/usr/x11r6/xc/exports/include -I/usr/x11r6/include" \
 	"MAKELIB = ../bin/mklib.ar-ruv" \
 	"XLIBS = -L/usr/x11r6/xc/exports/lib -L/usr/x11r6/lib \
-		-lX11 -lsocket -lnsl -lm"
+		-lXmu -z nodefs -lXext -lX11 -lsocket -lnsl -lm"
