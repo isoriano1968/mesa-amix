@@ -41,6 +41,7 @@ are not enabled.
 cd /usr/mesa3/Mesa-3.1
 sh amix-build.sh libs
 sh amix-build.sh xdemos
+sh amix-build.sh mech
 ```
 
 The first milestone builds static Mesa, GLU, and GLUT libraries to validate
@@ -55,10 +56,21 @@ LD_LIBRARY_PATH=/usr/x11r6/xc/exports/lib:/usr/lib
 export DISPLAY LD_LIBRARY_PATH
 ```
 
+The `mech` target builds the classic GLUT robot demo imported from GLUT 3.7:
+
+```sh
+cd /usr/mesa3/Mesa-3.1
+sh amix-build.sh mech
+./demos/glutmech
+```
+
 ## Source archives
 
 - `MesaLib-3.1.tar.gz`
 - `MesaDemos-3.1.tar.gz`
+- `glut-3.7/progs/demos/glutmech/glutmech.c`
 
-Both are downloaded from the
+The Mesa archives are downloaded from the
 [official Mesa archive](https://archive.mesa3d.org/older-versions/3.x/).
+The `glutmech` demo comes from the official GLUT 3.7 archive; its original
+source header and GLUT notice are kept in the overlay.

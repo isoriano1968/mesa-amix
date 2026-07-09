@@ -27,8 +27,13 @@ fails on malformed backslashes in unrelated upstream platform targets.
 2. Build `src-glu` to produce `libGLU.a`.
 3. Build `src-glut` to produce `libglut.a`.
 4. Build `xdemos` and run a minimal visual test against `Xzz9000`.
-5. Add AMIX ELF shared-library rules only after the static path is proven.
+5. Build selected GLUT demos such as `gears` and `glutmech`.
+6. Add AMIX ELF shared-library rules only after the static path is proven.
 
 The X11R6 repository owns any future server-side GLX extension. This Mesa
 repository owns the renderer, GL/GLU/GLUT libraries, demos, and client-side
 GLX/Xlib integration.
+
+`glutmech` is imported from GLUT 3.7 as a useful animation-heavy GLUT test.
+It intentionally stays in `demos` beside `gears` instead of being folded into
+the X11R6 tree.
