@@ -42,6 +42,9 @@ libs)
 xdemos)
     build_dir xdemos
     ;;
+bounce)
+    build_target demos bounce
+    ;;
 gears)
     build_target demos gears
     ;;
@@ -60,7 +63,7 @@ clean)
     make clean
     ;;
 *)
-    echo "usage: $0 [libs|xdemos|gears|glutmech|mech|demos|all|clean]" >&2
+    echo "usage: $0 [libs|xdemos|bounce|gears|glutmech|mech|demos|all|clean]" >&2
     exit 1
     ;;
 esac
